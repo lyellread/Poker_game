@@ -15,13 +15,15 @@ class color:
    END = '\033[0m'
 
 def ascii_version_of_card(*cards, return_string=True, current_player=None, deck_code=None, card_color=True):
-    #got off internet
+    # Source: http://73.94.131.229/kiwix/codereview.stackexchange.com_en_all_2018-03/A/question/82103/ascii-fication-of-playing-cards.html
+    
     """
     Instead of a boring text version of the card we render an ASCII image of the card.
     :param cards: One or more card objects
     :param return_string: By default we return the string version of the card, but the dealer hide the 1st card and we
     keep it as a list so that the dealer can add a hidden card in front of the list
     """
+    
     # we will use this to prints the appropriate icons for each card
     suits_name = ['Spades', 'Diamonds', 'Hearts', 'Clubs', ' ']
     suits_actual_symbols = ['♠', '♦', '♥', '♣', ' ']

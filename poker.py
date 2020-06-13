@@ -4,7 +4,14 @@ from player_class import *
 from hand_class import *
 from cards_deck import *
 
-games = ["Baseball", 
+
+
+def main():
+
+    #initialize variables
+    dealer_i =  0
+
+    games = ["Baseball", 
             "Queens", 
             "Whores", 
             "Nicks", 
@@ -19,52 +26,46 @@ games = ["Baseball",
             "Kings", 
             "7/27"]
 
-def main():
     starting_chip_stack = int(input("Enter starting chip stack amount: "))
     auntie = int(input("Enter auntie amount for games: "))
 
-    card_color = input("Do you want to use colored cards? y/n:  ")
-    if card_color == "y":
-        card_color = True
-    else:
-        card_color = False
+    #determine card color selection
+    card_color = 'y' == input("Do you want to use colored cards? y/n: ")
 
     #set up players
     players = []
     player_info = open('player_info.txt', 'w')
     player_info.close()
-    # players.append(Player("Noah"))
-    # players.append(Player("Tova"))
-    # players.append(Player("Alex"))
-    # players.append(Player("Steve"))
-    while(1==1):
-        player_name = input("Enter player name (type done to move on):  ")
+    
+    #fill player array
+    while(True):
+
+        player_name = input("Enter player name (type 'done' to move on): ")
         if player_name == "done":
             break
         players.append(Player(player_name, starting_chip_stack))
 
-    dealer_i =  0
-    while(1==1):
-        print()
-        print(f"New game, {players[dealer_i].name} is dealer")
+    while(True):
+        print(f"\nNew game, {players[dealer_i].name} is dealer")
+
+        #reset all hands
         for player in players:
             player.hand.reset()
             print(player)
 
         print("What game should we play? Type 'game over' to end, 'remove player' to remove a player, 'add player' to add a player.")
-        gametype = input("Game Options:", ' '.join(games), ": ")
-        
+        gametype = input("Game Options: " + ', '.join(games) + ": ")
 
         if gametype == "game over":
             break
 
         elif gametype == "remove player":
-            name = input("What is the name of the player to remove?  ")
+            name = input("What is the name of the player to remove? ")
             if player in players:
                 players.remove(player)
 
         elif gametype == "add player":
-            name = input("Enter plyer name:  ")
+            name = input("Enter plyer name: ")
             players.append(Player(name))
 
         elif gametype not in games:
@@ -84,5 +85,5 @@ def main():
             player.bet = 0
 
 
-
-main()
+if __name__ == "__main__":
+    main()

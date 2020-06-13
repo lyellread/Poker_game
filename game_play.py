@@ -7,7 +7,7 @@ class Game():
     #finish working on 1 card pass the trash
 
     def __init__(self, gametype: str, players: list, dealer_i: int, auntie: int, card_color: bool):
-        #need to implement 7 card screw?, 0-54, elivator?, kings?
+        #need to implement 7 card screw?, 0-54, elevator?, kings?
 
         self.pot = 0
         self.dealer_i = dealer_i

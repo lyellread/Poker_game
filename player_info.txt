@@ -1,0 +1,8 @@
+A
+card offset = 37366, card multiplier = 5324
+B
+card offset = 35753, card multiplier = 7573
+C
+card offset = 29024, card multiplier = 12054
+D
+card offset = 39996, card multiplier = 21475
