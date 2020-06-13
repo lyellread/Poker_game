@@ -18,17 +18,15 @@ def main():
     players = []
     player_info = open('player_info.txt', 'w')
     player_info.close()
-    # players.append(Player("Noah"))
-    # players.append(Player("Tova"))
-    # players.append(Player("Alex"))
-    # players.append(Player("Steve"))
+    
     while(1==1):
         player_name = input("Enter player name (type done to move on):  ")
         if player_name == "done":
             break
         players.append(Player(player_name, starting_chip_stack))
 
-    dealer_i =  0
+    dealer_i = 0
+    
     while(1==1):
         print()
         print(f"New game, {players[dealer_i].name} is dealer")
