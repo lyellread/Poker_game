@@ -35,7 +35,7 @@ def main():
     ante = int(input("Enter ante amount for games: "))
 
     # determine card color selection
-    card_color = "y" == input("Do you want to use colored cards? y/n: ")
+    card_color = "y" == input("Do you want to use colored cards? [y/N]: ")
 
     # set up players
     players = []
@@ -90,8 +90,13 @@ def main():
 
         elif gametype == "remove player":
             name = input("What is the name of the player to remove? ")
-            if player in players:
-                players.remove(player)
+            for player in players:
+                if player.name == name:
+                    players.remove(player)
+                    print("Player", name, "was removed.")
+                    continue
+
+            print("Error: could not find that player.")
 
         elif gametype == "add player":
             name = input("Enter plyer name: ")
