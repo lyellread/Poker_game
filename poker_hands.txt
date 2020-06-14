@@ -1,8 +1,0 @@
-A
-10_of_Spades, 5_of_Diamonds, 
-B
-2_of_Spades, 5_of_Spades, 
-C
-6_of_Spades, 3_of_Diamonds, 
-D
-7_of_Hearts, Ace_of_Hearts, 
