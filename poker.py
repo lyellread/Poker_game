@@ -32,7 +32,7 @@ def main():
     poker_hands_filename = "player_poker_hands.txt"
 
     starting_chip_stack = int(input("Enter starting chip stack amount: "))
-    auntie = int(input("Enter auntie amount for games: "))
+    ante = int(input("Enter ante amount for games: "))
 
     # determine card color selection
     card_color = "y" == input("Do you want to use colored cards? y/n: ")
@@ -65,10 +65,14 @@ def main():
             player.hand.reset()
             print(player)
 
-        print(
-            "What game should we play? Type 'game over' to end, 'remove player' to remove a player, 'add player' to add a player."
+        gametype = input(
+            "What do you want to do?\n"
+            " + Administrative Actions:\n"
+            "  - game over\n"
+            "  - remove player\n"
+            "  - add player\n"
+            " + Game Types:\n  - " + "\n  - ".join(games) + "\n\nChoice: "
         )
-        gametype = input("Game Options: " + ", ".join(games) + ": ")
 
         if gametype == "game over":
 
@@ -96,7 +100,7 @@ def main():
 
         else:
             game = Game(
-                gametype, players, dealer_i, auntie, card_color, poker_hands_filename
+                gametype, players, dealer_i, ante, card_color, poker_hands_filename
             )
             game.play()
 

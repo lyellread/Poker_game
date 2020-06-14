@@ -12,7 +12,7 @@ class Game:
         gametype: str,
         players: list,
         dealer_i: int,
-        auntie: int,
+        ante: int,
         card_color: bool,
         poker_hands_filename: str,
     ):
@@ -42,8 +42,8 @@ class Game:
 
         if gametype in norm_games:
             for player in players:
-                player.auntie(auntie)
-                self.pot += auntie
+                player.ante(ante)
+                self.pot += ante
 
         self.deck = Deck()
         self.table = Hand()
@@ -379,10 +379,10 @@ class Game:
         while highest_num_legs < 3:
             new_round = True
             while 1 == 1:
-                # add new aunties
+                # add new antes
                 for player in self.players:
                     player.hand.reset()
-                    player.auntie(5)
+                    player.ante(5)
                     self.pot += 5
 
                 someones_in = False
@@ -793,7 +793,7 @@ class Game:
 
         # have people put in initial antie amounts
         for player in self.players:
-            player.auntie(5)
+            player.ante(5)
             self.pot += 5
 
         while self.game_over == False:

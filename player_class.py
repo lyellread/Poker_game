@@ -24,10 +24,10 @@ class Player:
         info_string += f"card offset = {self.card_offset}, card multiplier = {self.card_multiplier}"
         print(info_string, file=player_info)
 
-    def auntie(self, amount):
+    def ante(self, amount):
         """
         amount = int
-        Funtion to remove the auntie amount from a players chip stack
+        Funtion to remove the ante amount from a players chip stack
         """
 
         self.chip_stack -= amount
