@@ -5,8 +5,6 @@ from cards_deck import *
 
 
 class Game:
-    # finish working on 1 card pass the trash
-
     def __init__(
         self,
         gametype: str,
@@ -17,7 +15,8 @@ class Game:
         poker_hands_filename: str,
     ):
 
-        # TODO: need to implement 7 card screw?, 0-54, elevator?, kings?
+        # TODO: - need to implement 7 card screw?, 0-54, elevator?, kings?
+        #       - finish working on 1 card pass the trash
 
         self.poker_hands_filename = poker_hands_filename
         self.pot = 0

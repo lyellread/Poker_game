@@ -61,7 +61,7 @@ def main():
             )
 
     while True:
-        print(f"\nNew game, {players[dealer_i].name} is dealer")
+        print(f"\nNew game,", str(players[dealer_i].name), "is dealer")
 
         # reset all hands
         for player in players:
