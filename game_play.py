@@ -370,7 +370,7 @@ class Game:
 
         while highest_num_legs < 3:
             new_round = True
-            while 1 == 1:
+            while True:
                 # add new aunties
                 for player in self.players:
                     player.hand.reset()
@@ -815,7 +815,7 @@ class Game:
                 player = self.players[player_i]
                 player_in = input(f"{player.name} are you in y/n?  ")
                 if player_in == "y":
-                    while 1 == 1:
+                    while True
                         position = input(
                             f" {player.name} are you in blind, row, col, or double?  "
                         )
@@ -915,7 +915,7 @@ class Game:
             for player in players_to_remove:
                 eligible_players.remove(player)
 
-            while 1 == 1:
+            while True:
                 players_to_remove = []
 
                 for player in eligible_players:

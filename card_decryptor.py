@@ -29,7 +29,7 @@ def main():
     print("Make sure to be careful with initial inputs! :)")
 
     # get card offset inputed corectly
-    while 1:
+    while True:
         try:
             card_offset = int(input("Enter your card_offset value:  "))
             if (card_offset < 0) or (card_offset > 46132):
@@ -39,7 +39,7 @@ def main():
         except:
             print("Invalid card_offset")
 
-    while 1 == 1:
+    while True:
         try:
             card_multiplier = int(input("Enter your card_multiplier value:  "))
             if (card_multiplier < 1) or (card_multiplier > 46132):
@@ -66,7 +66,7 @@ def main():
         inverse = (inverse * temp_inverse) % 46133
         remainder = (remainder * temp_inverse) % 46133
 
-    while 1:
+    while True:
         print(
             "\nPlease type in the codes of the cards you want decoded. Until you start a new had each new code will be added to the current hand"
         )
@@ -76,7 +76,7 @@ def main():
         print(" Type 'quit' to quit")
 
         current_hand_codes = []
-        while 1:
+        while True:
             inCode = input(
                 "\nEnter card code (to enter multiple codes seperate them by ' '):  "
             )
