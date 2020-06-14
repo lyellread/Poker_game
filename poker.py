@@ -1,62 +1,84 @@
 import random
+import os
 from game_play import *
 from player_class import *
 from hand_class import *
 from cards_deck import *
 
 
-
 def main():
 
-    #initialize variables
-    dealer_i =  0
+    # initialize variables
+    dealer_i = 0
 
-    games = ["Baseball", 
-            "Queens", 
-            "Whores", 
-            "Nicks", 
-            "Texas", 
-            "Omaha", 
-            "test", 
-            "0/54", 
-            "7_card_screw", 
-            "Elevator", 
-            "1_card_screw", 
-            "D_and_G", 
-            "Kings", 
-            "7/27"]
+    games = [
+        "Baseball",
+        "Queens",
+        "Whores",
+        "Nicks",
+        "Texas",
+        "Omaha",
+        "test",
+        "0/54",
+        "7_card_screw",
+        "Elevator",
+        "1_card_screw",
+        "D_and_G",
+        "Kings",
+        "7/27",
+    ]
+
+    player_info_filename = "player_info.txt"
+    poker_hands_filename = "player_poker_hands.txt"
 
     starting_chip_stack = int(input("Enter starting chip stack amount: "))
     auntie = int(input("Enter auntie amount for games: "))
 
-    #determine card color selection
-    card_color = 'y' == input("Do you want to use colored cards? y/n: ")
+    # determine card color selection
+    card_color = "y" == input("Do you want to use colored cards? y/n: ")
 
-    #set up players
+    # set up players
     players = []
-    player_info = open('player_info.txt', 'w')
+    player_info = open(player_info_filename, "w")
     player_info.close()
-    
-    #fill player array
-    while(True):
+
+    # fill player array
+    while True:
 
         player_name = input("Enter player name (type 'done' to move on): ")
         if player_name == "done":
             break
-        players.append(Player(player_name, starting_chip_stack))
+        players.append(
+            Player(
+                player_name,
+                starting_chip_stack,
+                player_info_filename,
+                poker_hands_filename,
+            )
+        )
 
-    while(True):
+    while True:
         print(f"\nNew game, {players[dealer_i].name} is dealer")
 
-        #reset all hands
+        # reset all hands
         for player in players:
             player.hand.reset()
             print(player)
 
-        print("What game should we play? Type 'game over' to end, 'remove player' to remove a player, 'add player' to add a player.")
-        gametype = input("Game Options: " + ', '.join(games) + ": ")
+        print(
+            "What game should we play? Type 'game over' to end, 'remove player' to remove a player, 'add player' to add a player."
+        )
+        gametype = input("Game Options: " + ", ".join(games) + ": ")
 
         if gametype == "game over":
+
+            # remove the files that were created at game over time
+            if player_info_filename in os.listdir("."):
+                os.remove(player_info_filename)
+
+            if poker_hands_filename in os.listdir("."):
+                os.remove(poker_hands_filename)
+
             break
 
         elif gametype == "remove player":
@@ -73,13 +95,15 @@ def main():
             pass
 
         else:
-            game = Game(gametype, players, dealer_i, auntie, card_color)
+            game = Game(
+                gametype, players, dealer_i, auntie, card_color, poker_hands_filename
+            )
             game.play()
 
             # increment dealer, loop if needed
             dealer_i = (dealer_i + 1) % (len(players))
 
-        #reset players hands and bet amount
+        # reset players hands and bet amount
         for player in players:
             player.hand.reset()
             player.bet = 0
