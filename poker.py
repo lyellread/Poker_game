@@ -45,17 +45,20 @@ def main():
     # fill player array
     while True:
 
-        player_name = input("Enter player name (type 'done' to move on): ")
-        if player_name == "done":
+        player_name = input("Enter player name (press Enter to move on): ")
+        if player_name == "" and len(players) > 0:
             break
-        players.append(
-            Player(
-                player_name,
-                starting_chip_stack,
-                player_info_filename,
-                poker_hands_filename,
+        elif player_name == "" and len(players) == 0:
+            print("Error: At least one player is needed!")
+        else:
+            players.append(
+                Player(
+                    player_name,
+                    starting_chip_stack,
+                    player_info_filename,
+                    poker_hands_filename,
+                )
             )
-        )
 
     while True:
         print(f"\nNew game, {players[dealer_i].name} is dealer")
