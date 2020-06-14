@@ -1,6 +1,7 @@
 from cards_deck import *
 
-class Hand():
+
+class Hand:
     def __init__(self):
         self.cards = []
 
@@ -95,5 +96,10 @@ class Hand():
         if len(self.cards) == 0:
             return "empty"
 
-        string = ascii_version_of_hand(self.cards, current_player=player, deck_code=deck_code, card_color=card_color)
+        string = ascii_version_of_hand(
+            self.cards,
+            current_player=player,
+            deck_code=deck_code,
+            card_color=card_color,
+        )
         return string
