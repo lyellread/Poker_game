@@ -1,8 +1,0 @@
-
-card offset = 32534, card multiplier = 530
-a
-card offset = 35757, card multiplier = 26060
-A
-card offset = 26611, card multiplier = 14192
-A
-card offset = 22857, card multiplier = 261
